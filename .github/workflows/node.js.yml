@@ -20,10 +20,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Voron CI
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: npm init  
     - run: npm install remark-cli remark-validate-links
     - run: git clone https://github.com/VoronDesign/GithubScripts.git .github_scripts
     - run: /bin/bash ./.github_scripts/travis/ci-build.sh
