@@ -20,11 +20,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Voron CI
+    - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm init -y  
-    - run: npm install --global remark-cli remark-validate-links
-    - run: git clone https://github.com/VoronDesign/GithubScripts.git .github_scripts
-    - run: /bin/bash ./.github_scripts/travis/ci-build.sh
+    - name: NPM Init
+      run: npm init -y  
+    - name: Install Remark
+      run: npm install --global remark-cli remark-validate-links
+    - name: Clone Script repo
+      run: git clone https://github.com/VoronDesign/GithubScripts.git .github_scripts
+    - name: Print Travis ENV vars 
+      run: |
+          echo "TRAVIS_BRANCH: ${TRAVIS_BRANCH}"
+          echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
+          echo "TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
+          echo "TRAVIS_SECURE_ENV_VARS: ${TRAVIS_SECURE_ENV_VARS}"
+    - name: Execute CI
+      run: /bin/bash ./.github_scripts/travis/ci-build.sh
