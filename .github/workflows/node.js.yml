@@ -25,6 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm init -y  
-    - run: npm install remark-cli remark-validate-links
+    - run: npm install --global remark-cli remark-validate-links
     - run: git clone https://github.com/VoronDesign/GithubScripts.git .github_scripts
     - run: /bin/bash ./.github_scripts/travis/ci-build.sh
