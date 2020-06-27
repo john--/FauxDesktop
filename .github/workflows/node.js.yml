@@ -32,9 +32,9 @@ jobs:
       run: git clone https://github.com/VoronDesign/GithubScripts.git .github_scripts
     - name: Print Travis ENV vars 
       run: |
-          echo "TRAVIS_BRANCH: ${TRAVIS_BRANCH}"
-          echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
-          echo "TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
-          echo "TRAVIS_SECURE_ENV_VARS: ${TRAVIS_SECURE_ENV_VARS}"
+        echo "TRAVIS_BRANCH: ${TRAVIS_BRANCH}"
+        echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
+        echo "TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
+        echo "TRAVIS_SECURE_ENV_VARS: ${TRAVIS_SECURE_ENV_VARS}"
     - name: Execute CI
       run: /bin/bash ./.github_scripts/travis/ci-build.sh
