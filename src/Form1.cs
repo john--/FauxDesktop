@@ -22,7 +22,9 @@ namespace FauxDesktop
             this.BackColor = System.Drawing.Color.LimeGreen;
             this.button1.Visible = false;
             this.label1.Visible = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ControlBox = false;
+            this.Text = String.Empty;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.listBox1.Visible = false;
             this.label2.Visible = false;
             /*
